@@ -44,7 +44,7 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 	
-//	USES IDSHIFT TO RANDOMIZE A 12 PLACE NUMERIC ID
+//	USES IDSHIFT TO RANDOMIZE A 10 PLACE NUMERIC ID
 	private String setId() {
 		String newId = "";
 		StringBuilder sb = new StringBuilder();
