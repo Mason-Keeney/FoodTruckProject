@@ -6,7 +6,7 @@ import com.skilldistillery.foodtruck.entities.FoodTruck;
 
 public class FoodTruckApp {
 
-//	TODO BOOLEAN FIELDS - ASK IF THERE IS A BETTER WAY
+
 	private boolean isInputting = true;
 	private boolean menuShowing = true;
 
@@ -91,11 +91,10 @@ public class FoodTruckApp {
 			}
 			break;
 		case 2:
-			System.out.println(app.averageRating(trucks));
+			System.out.println(averageRating(trucks));
 			break;
 		case 3:
-			FoodTruck best = app.highestRating(trucks);
-			System.out.println("The highest rated truck is " + best.toString());
+			highestRating(trucks);
 			break;
 		case 4:
 			menuShowing = false;
@@ -104,20 +103,38 @@ public class FoodTruckApp {
 		}
 	}
 
-//	FILTERS TO HIGHEST RATED FOODTRUCK TODO add method for ties
-	private FoodTruck highestRating(FoodTruck[] trucks) {
+//	FILTERS TO HIGHEST RATED FOODTRUCK 
+	private void highestRating(FoodTruck[] trucks) {
 		FoodTruck best = trucks[0];
-
+		FoodTruck tieTruck = new FoodTruck();
+		boolean isTie = false;
+		
 		for (int i = 0; i < trucks.length; i++) {
 			if (trucks[i] != null) {
 				if (trucks[i].getRating() > best.getRating()) {
 					best = trucks[i];
-				}
+				} 
 			}
 
 		}
+		for (FoodTruck tempTruck : trucks) {
+			if(tempTruck != null) {
+				if (tempTruck.getRating() == best.getRating()) {
+					tieTruck = tempTruck;
+					isTie = true;
+				} 
+			}
+		}
 
-		return best;
+	if (!isTie) {
+		System.out.println("The best Truck is: " + best);
+	}
+	
+	if (isTie) {
+		System.out.println("There was a tie between " + best.getName() + " and " + tieTruck.getName());
+		System.out.println(best);
+		System.out.println(tieTruck);
+	}
 
 	}
 
@@ -138,3 +155,4 @@ public class FoodTruckApp {
 		return average;
 	}
 }
+
