@@ -1,7 +1,7 @@
 package com.skilldistillery.foodtruck.entities;
 
 public class FoodTruck {
-	private static int idShift = 1;
+	private static int idShift;
 	private final String Id = setId();
 	private String name;
 	private String foodType;
@@ -44,16 +44,17 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 	
-//	USES IDSHIFT TO RANDOMIZE A TEN PLACE NUMERIC ID
+//	USES IDSHIFT TO RANDOMIZE A 12 PLACE NUMERIC ID
 	private String setId() {
 		String newId = "";
 		StringBuilder sb = new StringBuilder();
+		sb.append(((idShift + 1) % 10) + "-");
 		
 
-		for (int i = 0; i < 12; i++) {
-			int random = (int)Math.round(Math.random() * (idShift + 2));
+		for (int i = 1; i < 10; i++) {
+			int random = (int)Math.round(Math.random() * (idShift + 3));
 				sb.append(((random * (i + idShift)) % 10));	
-				if (i % 3 == 0) {
+				if (i % 3 == 0 && i != 9) {
 					sb.append('-');
 				}
 		}
