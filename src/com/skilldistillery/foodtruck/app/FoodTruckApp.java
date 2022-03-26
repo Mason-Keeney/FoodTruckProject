@@ -10,14 +10,13 @@ public class FoodTruckApp {
 	private boolean menuShowing = true;
 	
 	public static void main(String[] args) {
-//		TODO USER ENTERS NAME, FOODTYPE, AND RATING UP TO FIVE FOOD TRUCKS
+
 		
 //	USER INPUT LOOP VARIABLES
 		Scanner sc = new Scanner(System.in);
 		FoodTruck[] trucks = new FoodTruck[5];
 		FoodTruckApp app = new FoodTruckApp();
-		
-		
+
 		
 //	USER INPUT FOR LOOP BEGIN
 		for (int i = 0; i < 5; i++) {
@@ -27,6 +26,7 @@ public class FoodTruckApp {
 				break;
 			}
 		}
+		
 		
 //	MENU LOOP VARIABLES
 		
@@ -39,16 +39,11 @@ public class FoodTruckApp {
 		if(app.menuShowing) {
 			sc.close();
 		}
-		
-		
-		
-		
-//		TODO USER HAS QUIT OPTION
-		
-//		TODO MENU (ANYTIME QUIT OPTION??)
+	
 
 	}
 
+//  CREATES FOODTRUCK BASED ON USER INPUT RETURNS TO USER	
 	private FoodTruck rateNewTruck(Scanner sc, FoodTruckApp app) {
 		
 		System.out.print("Please enter the name of the Food Truck you would like to rate (enter quit to exit): ");
@@ -72,6 +67,7 @@ public class FoodTruckApp {
 		
 	}
 	
+//	PRINTS MENU
 	private void printMenu() {
 		System.out.println("---------------------------------------------");
 		System.out.println("|                                           |");
@@ -84,6 +80,8 @@ public class FoodTruckApp {
 		System.out.println("|                                           |");
 		System.out.println("---------------------------------------------");
 	}
+	
+//	ALLOWS USER TO INTERACT WITH MENU
 	private void menuSwitch(int choice, FoodTruck[] trucks, FoodTruckApp app) {
 		switch (choice) {
 		case 1:
@@ -106,6 +104,8 @@ public class FoodTruckApp {
 			
 		}
 	}
+	
+//	FILTERS TO HIGHEST RATED FOODTRUCK
 	private FoodTruck highestRating(FoodTruck[] trucks) {
 		FoodTruck best = trucks[0];
 		for (FoodTruck truck : trucks) {
@@ -118,7 +118,8 @@ public class FoodTruckApp {
 		return best;
 		
 	}
-
+	
+// AVERAGES RATING OF FOODTRUCKS
 	private int averageRating(FoodTruck[] trucks) {
 		int average = 0;
 		int numTruck = 0;

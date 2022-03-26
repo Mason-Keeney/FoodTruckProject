@@ -44,14 +44,14 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 	
-	
+//	USES IDSHIFT TO RANDOMIZE A TEN PLACE NUMERIC ID
 	private String setId() {
 		String newId = "";
 		StringBuilder sb = new StringBuilder();
 		
-//	RANDOMIZES A TEN PLACE NUMERIC ID
+
 		for (int i = 0; i < 12; i++) {
-			int random = (int)Math.round(Math.random() * 6);
+			int random = (int)Math.round(Math.random() * (idShift + 2));
 				sb.append(((random * (i + idShift)) % 10));	
 				if (i % 3 == 0) {
 					sb.append('-');
