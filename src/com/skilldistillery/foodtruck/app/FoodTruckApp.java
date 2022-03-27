@@ -45,7 +45,7 @@ public class FoodTruckApp {
 //  CREATES FOODTRUCK BASED ON USER INPUT RETURNS TO MAIN	
 	private FoodTruck rateNewTruck(Scanner sc, FoodTruckApp app) {
 
-		System.out.print("Please enter the name of the Food Truck you would like to rate (enter quit to exit): ");
+		System.out.println("Please enter the name of the Food Truck you would like to rate (enter quit to stop entering new Food Trucks): ");
 		FoodTruck temp = new FoodTruck();
 		String name = sc.nextLine();
 		if (name.toLowerCase().equals("quit")) {
@@ -53,7 +53,7 @@ public class FoodTruckApp {
 			return null;
 		}
 		temp.setName(name);
-		System.out.print("Please enter the type of food that " + name + " serves: ");
+		System.out.println("Please enter the type of food that " + name + " serves: ");
 		String food = sc.nextLine();
 		temp.setFoodType(food);
 		System.out.println("Now, how would you rate them?");
@@ -93,7 +93,7 @@ public class FoodTruckApp {
 			break;
 		case "2":
 		case "average":
-			System.out.println(averageRating(trucks));
+			System.out.println("The average rating you gave is: " + averageRating(trucks));
 			break;
 		case "3":
 		case "highest":
@@ -108,8 +108,13 @@ public class FoodTruckApp {
 		case "5":
 		case "menu":
 		case "show menu":
+		case "option":
+		case "options":
 			printMenu();
 			break;
+		default:
+			System.out.println("Please enter a valid optiion");
+			System.out.println("Please type quit to Exit, or menu to show the Options Menu");
 		}
 	}
 
@@ -128,13 +133,12 @@ public class FoodTruckApp {
 
 		}
 		for (FoodTruck tempTruck : trucks) {
-			if (tempTruck != null) {
-				if (tempTruck != best) {
-					if (tempTruck.getRating() == best.getRating()) {
-						tieTruck = tempTruck;
-						isTie = true;
-					}
+			if (tempTruck != null && tempTruck != best) {
+				if (tempTruck.getRating() == best.getRating()) {
+					tieTruck = tempTruck;
+					isTie = true;
 				}
+
 			}
 		}
 
