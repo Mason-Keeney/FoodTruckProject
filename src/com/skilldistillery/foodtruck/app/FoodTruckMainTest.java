@@ -8,7 +8,9 @@ public class FoodTruckMainTest {
 
 	public static void main(String[] args) {
 
-//		REQUIRED MAIN VARIABLES
+//		THIS FILE ONLY EXISTS TO TEST IF FOODTRUCKAPP WOULD WORK IN A SEPARATE MAIN IF INSTANTIATED
+//		AND IT DOES, FEEL FREE TO IGNORE IT
+		
 			Scanner sc = new Scanner(System.in);
 			FoodTruck[] trucks = new FoodTruck[5];
 			FoodTruckApp app = new FoodTruckApp();

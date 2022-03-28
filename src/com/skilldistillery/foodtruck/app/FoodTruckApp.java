@@ -44,18 +44,23 @@ public class FoodTruckApp {
 
 //  CREATES FOODTRUCK BASED ON USER INPUT RETURNS TO MAIN	
 	private FoodTruck rateNewTruck(Scanner sc, FoodTruckApp app) {
-
-		System.out.println("Please enter the name of the Food Truck you would like to rate (enter quit to stop entering new Food Trucks): ");
 		FoodTruck temp = new FoodTruck();
+		
+//	NAME AND QUIT OPTION
+		System.out.println("Please enter the name of the Food Truck you would like to rate (enter quit to stop entering new Food Trucks): ");
 		String name = sc.nextLine();
 		if (name.toLowerCase().equals("quit")) {
 			isInputting = false;
 			return null;
 		}
 		temp.setName(name);
+		
+//		FOODTYPE
 		System.out.println("Please enter the type of food that " + name + " serves: ");
 		String food = sc.nextLine();
 		temp.setFoodType(food);
+		
+//		RATING
 		System.out.println("Now, how would you rate them?");
 		int rating = sc.nextInt();
 		sc.nextLine();
@@ -103,6 +108,8 @@ public class FoodTruckApp {
 			break;
 		case "4":
 		case "quit":
+		case "exit":
+		case "end":
 			menuShowing = false;
 			return;
 		case "5":
